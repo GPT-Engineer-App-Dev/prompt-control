@@ -187,7 +187,7 @@ const Index = () => {
     setPromptText(prompt.attributes.prompt);
   };
 
-  if (!isLoggedIn) {
+  if (isLoggedIn === "register") {
     return (
       <Box p={4}>
         <Heading as="h1" mb={4}>
@@ -206,7 +206,7 @@ const Index = () => {
         </Button>
         <Text>
           Don't have an account?{" "}
-          <Button variant="link" onClick={() => setIsLoggedIn(false)}>
+          <Button variant="link" onClick={() => setIsLoggedIn("register")}>
             Register
           </Button>
         </Text>
@@ -214,7 +214,7 @@ const Index = () => {
     );
   }
 
-  if (!isLoggedIn) {
+  if (isLoggedIn === "login") {
     return (
       <Box p={4}>
         <Heading as="h1" mb={4}>
@@ -237,7 +237,7 @@ const Index = () => {
         </Button>
         <Text>
           Already have an account?{" "}
-          <Button variant="link" onClick={() => setIsLoggedIn(true)}>
+          <Button variant="link" onClick={() => setIsLoggedIn("login")}>
             Login
           </Button>
         </Text>
